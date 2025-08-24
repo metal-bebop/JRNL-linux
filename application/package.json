@@ -1,5 +1,6 @@
 {
-  "name": "jrnl",
+  "homepage": "https://github.com/metalbebop/jrnl-linux",
+  "name": "jrnl-linux",
   "version": "2.0.0",
   "description": "Journal",
   "main": "main.js",
@@ -7,9 +8,13 @@
     "start": "electron .",
     "dist": "electron-builder",
     "package-win32": "electron-packager . JRNL --overwrite --platform=win32 --arch=ia32 --icon=./icon.ico --prune=true --out=../releases",
-    "package-osx": "electron-packager . JRNL --overwrite --platform=darwin --arch=x64 --icon=./icon.icns --prune=true --out=../releases"
+    "package-osx": "electron-packager . JRNL --overwrite --platform=darwin --arch=x64 --icon=./icon.icns --prune=true --out=../releases",
+    "installer-linux": "electron-builder --linux"  
   },
-  "author": "Saul Amster",
+  "author": {
+    "name": "AJ Bradley",
+    "email": "abradley4646@gmail.com"
+  },
   "license": "ISC",
   "devDependencies": {
     "electron": "^16.0.7",
@@ -17,8 +22,7 @@
     "electron-packager": "^13.1.1"
   },
   "dependencies": {
-    "jquery": "^3.5.0",
-    "powertoast": "^2.0.0"
+    "jquery": "^3.5.0"
   },
   "build": {
     "appId": "com.electron.jrnl",
@@ -28,6 +32,12 @@
     },
     "win": {
       "target": "msi"
-    }
+    },
+    "linux": {
+      "target": ["AppImage", "deb"],
+      "icon": "jrnlicon.png",
+      "category": "Utility",
+      "maintainer": "AJ Bradley abradley4646@gmail.com"
+  }
   }
 }
