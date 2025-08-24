@@ -9,7 +9,7 @@
     "dist": "electron-builder",
     "package-win32": "electron-packager . JRNL --overwrite --platform=win32 --arch=ia32 --icon=./icon.ico --prune=true --out=../releases",
     "package-osx": "electron-packager . JRNL --overwrite --platform=darwin --arch=x64 --icon=./icon.icns --prune=true --out=../releases",
-    "installer-linux": "electron-builder --linux"  
+    "installer-linux": "electron-builder --linux"
   },
   "author": {
     "name": "AJ Bradley",
@@ -22,7 +22,8 @@
     "electron-packager": "^13.1.1"
   },
   "dependencies": {
-    "jquery": "^3.5.0"
+    "jquery": "^3.5.0",
+    "xmlbuilder": "^15.1.1"
   },
   "build": {
     "appId": "com.electron.jrnl",
@@ -34,10 +35,13 @@
       "target": "msi"
     },
     "linux": {
-      "target": ["AppImage", "deb"],
+      "target": [
+        "AppImage",
+        "deb"
+      ],
       "icon": "jrnlicon.png",
       "category": "Utility",
       "maintainer": "AJ Bradley abradley4646@gmail.com"
-  }
+    }
   }
 }
